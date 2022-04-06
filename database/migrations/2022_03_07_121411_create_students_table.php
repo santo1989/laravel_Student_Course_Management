@@ -14,8 +14,7 @@ class CreateStudentsTable extends Migration
             $table->integer('student_id');
             $table->string('class');
             $table->string('name');
-            $table->string('grade');
-            $table->boolean('is_active')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Course extends Model
+class Mark extends Model
 {
     use HasFactory;
     use SoftDeletes;
     protected $guarded = [];
-    
+
     public function student()
     {
         return $this->belongsToMany(Student::class);
@@ -21,4 +21,11 @@ class Course extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
+    
 }

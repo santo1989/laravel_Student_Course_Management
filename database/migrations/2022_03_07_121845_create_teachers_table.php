@@ -17,7 +17,7 @@ class CreateTeachersTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('image');
-            $table->boolean('is_active')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

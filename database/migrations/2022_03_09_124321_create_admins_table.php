@@ -11,7 +11,9 @@ class CreateAdminsTable extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('role_id')->refarence('id')->on('roles');
+            $table->string('name');
+            $table->string('email');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

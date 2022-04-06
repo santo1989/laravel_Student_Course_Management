@@ -19,7 +19,7 @@ class CreateProfilesTable extends Migration
             $table->string('address');
             $table->string('image');
             $table->date('dob');
-            $table->boolean('is_active')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

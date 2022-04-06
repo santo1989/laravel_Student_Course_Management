@@ -16,7 +16,7 @@ class CreateCoursesTable extends Migration
             $table->string('course_type');
             $table->string('course_duration');
             $table->string('course_fee');
-            $table->boolean('is_active')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
