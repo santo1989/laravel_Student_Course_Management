@@ -45,19 +45,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', function () {
         return view('backend.home');
     })->name('home');
-
+    
+    //Role
+    
     Route::resource('roles', RoleController::class);
     Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
     Route::get('roles/{role}', [RoleController::class, 'show'])->name('roles.show');
 
     // Student
+
     Route::get('students/export/', [StudentController::class, 'export'])->name('students.export');
     Route::get('students/pdf/', [StudentController::class, 'downloadPdf'])->name('students.pdf');
     Route::get('/trashed-students', [StudentController::class, 'trash'])
         ->name('students.trashed');
-    Route::get('/trashed-students/{student}/restore', [StudentController::class, 'restore'])->name('students.restore');
+    Route::get('/trashed-students/{student}/restore', [StudentController::class,  'restore'])->name('students.restore');
     Route::delete('/trashed-students/{student}/delete', [StudentController::class, 'delete'])->name('students.delete');
     Route::resource('students', StudentController::class);
+
+    // User
 
     Route::resource('users', UserController::class);
 
@@ -71,11 +76,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/users/update-profile', [ProfileController::class, 'update'])->name('users.profile.update');
 
 
-
+    // Course
     // Route::resource('students', StudentController::class);
     Route::resource('courses', CourseController::class);
+
+
+    // Teacher
     Route::resource('teachers', TeacherController::class);
 
     // Route::resource('users', UserController::class);
+
+    // Admin
+
     Route::resource('admins', AdminController::class);
 });
